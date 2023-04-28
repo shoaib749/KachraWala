@@ -1,12 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Landing from './screen/Landing';
+import UserRegister from './screen/user/UserRegister'
+import DriverRegister from './screen/driver/DriverRegister'
+import Home from './screen/user/Home';
+import UserLogin from './screen/user/UserLogin';
+
 
 export default function App() {
+  const Stack = createStackNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Landing' component={Landing} />
+        <Stack.Screen name="UserLogin" component={UserLogin} />
+        <Stack.Screen name="UserRegister" component={UserRegister} />
+        <Stack.Screen name="DriverRegister" component={DriverRegister} />
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
