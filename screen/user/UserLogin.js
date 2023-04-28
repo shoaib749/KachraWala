@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { Button, Input, Image } from "react-native-elements"
 import { StatusBar } from 'expo-status-bar'
 const UserLogin = ({ navigation }) => {
-    const [email, setEmail] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
     const [password, setPassword] = useState('')
     const signIn = () => {
-        fetch("http://10.0.10.221:5000/user/login", {
+        fetch("http://10.0.10.170:5000/user/login", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -14,7 +14,7 @@ const UserLogin = ({ navigation }) => {
             },
             body: JSON.stringify({
                 password: password,
-                email: email,
+                phonenumber: phoneNumber,
             })
         })
             .then((res) => {
@@ -35,12 +35,12 @@ const UserLogin = ({ navigation }) => {
                 console.log(data.name);
                 console.log(data.message);
                 console.log(data.token);
-                navigation.replace('HomeScreen', {
-                    id: data.id,
-                    name: data.name,
-                    imageurl: data.imageurl,
-                    email: email,
-                })
+                // navigation.replace('HomeScreen', {
+                //     id: data.id,
+                //     name: data.name,
+                //     imageurl: data.imageurl,
+                //     email: email,
+                // })
                 // navigation.replace("HomeScreen");
             })
             .catch(error => {
@@ -57,11 +57,11 @@ const UserLogin = ({ navigation }) => {
                 style={{ width: 200, height: 200 }}
             />
             <View style={styles.inputContainer}>
-                <Input placeholder='Email'
+                <Input placeholder='Phone Number'
                     autoFocus
-                    type="Email"
-                    value={email}
-                    onChangeText={(text) => setEmail(text)} />
+                    type="number"
+                    value={phoneNumber}
+                    onChangeText={(text) => setPhoneNumber(text)} />
                 <Input placeholder='Password'
                     secureTextEntry
                     type="password"
