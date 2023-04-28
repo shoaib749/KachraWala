@@ -6,7 +6,7 @@ const UserLogin = ({ navigation }) => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [password, setPassword] = useState('')
     const signIn = () => {
-        fetch("http://10.0.10.170:5000/user/login", {
+        fetch("http://10.0.10.221:5000/user/login", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -30,11 +30,13 @@ const UserLogin = ({ navigation }) => {
                 }
             })
             .then(data => {
-                console.log(data.id);
-                console.log(data.imageurl);
-                console.log(data.name);
+                
+                // console.log(data.id);
+                // console.log(data.imageurl);
+                // console.log(data.name);
                 console.log(data.message);
-                console.log(data.token);
+                navigation.navigate("Home");
+                // console.log(data.token);
                 // navigation.replace('HomeScreen', {
                 //     id: data.id,
                 //     name: data.name,

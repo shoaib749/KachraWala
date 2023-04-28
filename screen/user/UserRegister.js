@@ -11,7 +11,7 @@ const UserRegister = ({ navigation }) => {
 
     function registerUser() {
         console.log("Inside submit");
-        fetch("http://10.0.10.170:5000/user/register", {
+        fetch("http://10.0.10.221:5000/user/register", {
             method: "POST",
             headers: {
                 Accept: "application/json",
