@@ -1,32 +1,26 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { Input ,Image } from "react-native-elements"
+import { Input, Image } from "react-native-elements"
 
-const landing = ({Navigation}) => {
+const landing = ({ Navigation }) => {
     return (
         <View>
             <Text>Select Your type:</Text>
-            <TouchableOpacity onPress={()=>Navigation.Navigate("userRegister")}>
+            <TouchableOpacity onPress={() => Navigation.navigate("userRegister")}>
                 <Image
-                    source={{
-                        uri: "../assets/ManUserLogo.jpg"
-                    }}
+                    source={require("../assets/ManUserLogo.jpg")}
                     style={styles.imageBox}
                 />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => Navigation.navigate("driverRegister")}>
                 <Image
-                    source={{
-                        uri: "../assets/truckDriver.jpg"
-                    }}
+                    source={require("../assets/truckDriver.jpg")}
                     style={styles.imageBox}
                 />
             </TouchableOpacity>
         </View>
     )
 }
-
-export default landing
 
 const styles = StyleSheet.create({
     imageBox: {
@@ -36,3 +30,5 @@ const styles = StyleSheet.create({
     }
 
 })
+
+export default landing

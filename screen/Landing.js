@@ -22,7 +22,7 @@ const Landing = ({ navigation }) => {
                     https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Nal7Db4iPgGRxrvUItkqNNkrU4ZNaJAtLXsYTbuhhQ&usqp=CAU&ec=48665701
                 */}
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("DriverRegister")}>
+            <TouchableOpacity onPress={() => navigation.navigate("DriverLogin")}>
                 <Image
                     style={{ width: 200, height: 200 }}
                     source={{
